@@ -1,7 +1,7 @@
 <!Doctype html> 
 <html>
 	<head> 
-	<link rel="stylesheet" type="text/css" href="#">
+	<link rel="stylesheet" type="text/css" href=".\css\map.css">
 	<link rel="stylesheet" type="text/css" href="#">
 
 	</head> 
@@ -10,12 +10,19 @@
 	
 	
 	
-	
-	<div style="height:250px;width:150px;"id="trek-map"></div> 
-	
-	
-	
-	
+	<nav> 
+		<ul id="nav-bar"> 
+			<li>Home</li> 
+			<li>About</li> 
+			<li>Video Diaries</li>
+			<li> Pictures </li> 
+			<li>Donate</li> 
+			<li>Experience</li> 	
+			<li>Resumes</li> 	
+			<li> Special Thanks</li> 
+		</ul>
+	</nav> 
+	<div id="trek-map"></div> 
 		<script type="text/javascript">
 			var map;
 			function initMap() {
@@ -24,6 +31,13 @@
 						zoom: 8
 					});
 			}
+			
+			// Resize stuff...
+			google.maps.event.addDomListener(window, "resize", function() {
+			   var center = map.getCenter();
+			   google.maps.event.trigger(map, "resize");
+			   map.setCenter(center); 
+			});
 		</script> 
 		<script src="#"></script>
 		<script src="#"></script>
