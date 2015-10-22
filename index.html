@@ -29,33 +29,32 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-	<div id="container">
-		<div id="trek-map"></div> 
-	</div> 
-
-	<footer> 
-		<div id="footer"> 
-			<p> coded by CyberPunk </p> 
-		</div>
-	</footer> 
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCE2XyqKR9ZvFAClV-O-YxdshiBNez37Q&callback=initMap"></script>
-	<script type="text/javascript">
+<script type="text/javascript">
 			var map;
 			function initMap() {
 					map = new google.maps.Map(document.getElementById('trek-map'), {
 						center: {lat: -34.397, lng: 150.644},
-						zoom: 8
+						zoom: 2
 					});
 			}
-			
 			// Resize stuff...
 			google.maps.event.addDomListener(window, "resize", function() {
 			   var center = map.getCenter();
 			   google.maps.event.trigger(map, "resize");
 			   map.setCenter(center); 
 			});
-		</script> 
-		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	</script> 
+	<script  async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCE2XyqKR9ZvFAClV-O-YxdshiBNez37Q&callback=initMap"></script>
+	<div id="container">
+		<div id="trek-map"></div> 
+	</div>
+	<footer> 
+		<div id="footer"> 
+			<p> coded by CyberPunk </p> 
+		</div>
+	</footer> 
+	
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	</body> 
 </html> 
