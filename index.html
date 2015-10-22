@@ -1,35 +1,45 @@
 <!Doctype html> 
 <html>
-	<head> 
+	<head>
+	
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
 	<link rel="stylesheet" type="text/css" href=".\css\map.css">
+	<link rel="stylesheet" type="text/css" href=".\css\index.css">
 	<link rel="stylesheet" type="text/css" href="#">
-
+	
 	</head> 
 	<body>
-	
-	
-	
-	
-	<nav> 
-		<ul id="nav-bar"> 
-			<li>Home</li> 
-			<li>About</li> 
-			<li>Video Diaries</li>
-			<li> Pictures </li> 
-			<li>Donate</li> 
-			<li>Experience</li> 	
-			<li>Resumes</li> 	
-			<li> Special Thanks</li> 
-		</ul>
-	</nav> 
-	<div id="trek-map"></div> 
-	
-	
-	
-		<div> 
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Trek The Planet</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Vlog</a></li>
+        <li><a href="#">Pictures</a></li>
+        <li><a href="#">Experience</a></li>
+        <li><a href="#">Contact</a></li>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+	<div id="container">
+		<div id="trek-map"></div> 
+	</div> 
+
+	<footer> 
+		<div id="footer"> 
 			<p> coded by CyberPunk </p> 
-		</div> 
-		<script type="text/javascript">
+		</div>
+	</footer> 
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCE2XyqKR9ZvFAClV-O-YxdshiBNez37Q&callback=initMap"></script>
+	<script type="text/javascript">
 			var map;
 			function initMap() {
 					map = new google.maps.Map(document.getElementById('trek-map'), {
@@ -45,8 +55,7 @@
 			   map.setCenter(center); 
 			});
 		</script> 
-		<script src="#"></script>
-		<script src="#"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCE2XyqKR9ZvFAClV-O-YxdshiBNez37Q&callback=initMap"></script>
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	</body> 
 </html> 
