@@ -3,14 +3,13 @@
 	<head>
 	
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
-	<link rel="stylesheet" type="text/css" href=".\css\map.css">
-	<link rel="stylesheet" type="text/css" href=".\css\index.css">
-	<link rel="stylesheet" type="text/css" href="#">
+	<link rel="stylesheet" type="text/css" href="./css/map.css">
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
 	
 	</head> 
 	<body>
-	<input type="hidden" name="coordinates" id="coordinates" value="{lat:9.75, lng:100.033}"/>
-	<input type="hidden" name="paths" value="" /> 
+	<input type="hidden" name="coordinates" class="coordinates" value='{"lat":9.7500, "lng":100.0333}'/>
+	<input type="hidden" name="coordinates" class="coordinates" value='{"lat":38.5539, "lng":121.7381}'/>
 	 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -33,31 +32,9 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<script type="text/javascript">
-			var map;
-			var dest  = document.getElementById('coordinates');
-			function initMap() {
-					map = new google.maps.Map(document.getElementById('trek-map'), {
-						center: {lat: -34.397, lng: 150.644},
-						zoom: 2
-					});
-					var markers = new google.maps.Marker({
-						position: dest.value,
-						map: map,
-						title:'Thai land!'
-
-					});
-			}
-			// Resize stuff...
-			google.maps.event.addDomListener(window, "resize", function() {
-			   var center = map.getCenter();
-			   google.maps.event.trigger(map, "resize");
-			   map.setCenter(center); 
-			});
-			
-
-	</script> 
-	<script  async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCE2XyqKR9ZvFAClV-O-YxdshiBNez37Q&callback=initMap"></script>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script  async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCE2XyqKR9ZvFAClV-O-YxdshiBNez37Q&callback=initMap"></script>
+<script type="text/javascript" src="./js/map.js"></script> 
 	<div id="container">
 		<h3 id="headline"> TechnoHippy & CyberPunk Saving the World by First Travelling Across It </h3> 
 		<div id="trek-map"></div> 
@@ -67,7 +44,6 @@
 			<p> coded by CyberPunk </p> 
 		</div>
 	</footer> 
-	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	</body> 
 </html> 
