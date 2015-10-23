@@ -9,6 +9,9 @@
 	
 	</head> 
 	<body>
+	<input type="hidden" name="coordinates" id="coordinates" value="{lat:9.75, lng:100.033}"/>
+	<input type="hidden" name="paths" value="" /> 
+	 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -32,10 +35,17 @@
 </nav>
 <script type="text/javascript">
 			var map;
+			var dest  = document.getElementById('coordinates');
 			function initMap() {
 					map = new google.maps.Map(document.getElementById('trek-map'), {
 						center: {lat: -34.397, lng: 150.644},
 						zoom: 2
+					});
+					var markers = new google.maps.Marker({
+						position: dest.value,
+						map: map,
+						title:'Thai land!'
+
 					});
 			}
 			// Resize stuff...
@@ -44,6 +54,8 @@
 			   google.maps.event.trigger(map, "resize");
 			   map.setCenter(center); 
 			});
+			
+
 	</script> 
 	<script  async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCE2XyqKR9ZvFAClV-O-YxdshiBNez37Q&callback=initMap"></script>
 	<div id="container">
