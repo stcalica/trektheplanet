@@ -1,29 +1,39 @@
 	var map;
 	function initMap() {
+
 		map = new google.maps.Map(document.getElementById('trek-map'), {
 			center: {lat: 9.7500, lng: 100.0333},
 			zoom: 2
 		});
-		
-		var coors1 = $.parseJSON($(".coordinates")[0].val())
-		var coors2 = $.parseJSON($(".coordinates")[1].val())
+		var coordinates = [] 
+		$(".coordinates").each(function(){
 
-		var c1 = new google.maps.LatLng(coors1["lat"], coors1["lng"]);		
-		var c2 = new google.maps.LatLng(coors2["lat"], coors2["lng"]);		
-
-		var markers = new google.maps.Marker({
-			position: c1,
-			map: map,
+			coor = $.parseJSON($(this).val());
+			coordinates.push(coor);
+			
 		});
-		
+
+		var poly = new google.maps.Polyline({
+
+			strokeColor: '#000000' , 
+			strokeOpacity: 1.0 , 
+			strokeWeight: 3
+
+		});
+
+		poly.setMap(map);
+
+		for(var i =0; i < coordinates.length; i++){
+			var markers = new google.maps.Marker({
+				position: new google.maps.LatLng(coordinates[i].lat, coordinates[i].lng),
+				map:map
+			});
+			
+			var path = poly.getPath(); 
+			path.push(new google.maps.LatLng(coordinates[i].lat, coordinates[i].lng)); 
+		}
 	
-		var markers = new google.maps.Marker({
-		position: c2,
-		map: map,
-		});
 			
-			
-
 	}
 	// Resize stuff...
 	google.maps.event.addDomListener(window, "resize", function() {
@@ -35,6 +45,11 @@
 function addMarker(location){
 		//adds marker to map at initMap
 		//accepts google.maps.LatLng objects
+
+	
+
+
+
 
 }	
 
