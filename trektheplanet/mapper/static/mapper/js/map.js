@@ -9,10 +9,11 @@
 		$(".coordinates").each(function(){
 
 			coor = $.parseJSON($(this).val());
+			console.log(coor);
 			coordinates.push(coor);
 			
 		});
-
+		
 		var poly = new google.maps.Polyline({
 
 			strokeColor: '#000000' , 
@@ -20,7 +21,7 @@
 			strokeWeight: 3
 
 		});
-
+	
 		poly.setMap(map);
 
 		for(var i =0; i < coordinates.length; i++){

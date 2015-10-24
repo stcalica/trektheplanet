@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mapper'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'trektheplanet.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['/mapper/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

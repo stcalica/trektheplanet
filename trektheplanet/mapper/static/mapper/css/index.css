@@ -1,0 +1,25 @@
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#headline{
+	
+		text-align:center;
+}
+
+#container{
+	
+	width:100%;
+	height:100%; 
+	
+}
+
+
+#footer{
+	
+	bottom:0px;
+	
+}
