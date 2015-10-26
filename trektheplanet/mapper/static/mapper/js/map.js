@@ -3,7 +3,7 @@
 
 		map = new google.maps.Map(document.getElementById('trek-map'), {
 			center: {lat: 9.7500, lng: 100.0333},
-			zoom: 2
+			zoom: 3
 		});
 		var coordinates = [] 
 		$(".coordinates").each(function(){
