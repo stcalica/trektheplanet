@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse 
 from django.core import serializers
 from .models import Destination
-from .froms import ExpForm 
+from .forms import ExpForm 
 
 
 import urllib2
@@ -31,7 +31,7 @@ def addexp(request):
 		grequest = "https://maps.googleapis.com/maps/api/geocode/json?address=%s" % add 
 		response = urllib2.urlopen(grequest)
 		geocode = response.read() #convert into json object extract lat and lng then save them to server with Destination object
-		pass
+		print(geocode) 
 		#return a thank you alert and then send them to index to see the location added to the map!
 		#need to also verify with captchas 
 	else:
@@ -52,4 +52,4 @@ def about(request):
 
 def contactus(request):
 	#sends us email
-	return render(request, "contactus.html", {'form': form}
+	return render(request, "contactus.html", {'form': form})

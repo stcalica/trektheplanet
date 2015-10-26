@@ -15,5 +15,12 @@ class Destination(models.Model):
 #class Friend(models.Model):
 #	name = models.CharField(25) 
 #	destination = ForeignKey(Destination) 
-
- 
+"""
+class Contact(models.Model):
+	name = models.CharField(25) 
+	home = models.CharField(25) 
+	latitude = models.FloatField() #latitude and Lng??? 
+	longitude = models.FloatField() #latitude and Lng???
+	email = models.CharField(25) 
+	phonenumber = models.IntegerField() 
+"""
