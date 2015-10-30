@@ -23,3 +23,20 @@ body {
 	bottom:0px;
 	
 }
+
+#about{
+
+	border:2px solid black; 
+	margin:center;
+	padding:15px;
+	
+
+}
+
+
+#addExp{
+	border:2px solid blue;
+	margin:center; 
+	padding:15px; 
+
+}

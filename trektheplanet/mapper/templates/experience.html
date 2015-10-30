@@ -4,7 +4,6 @@
 	<head>
 	
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
-	<link rel="stylesheet" type="text/css" href="{% static 'mapper/css/map.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'mapper/css/index.css' %}">
 	
 	</head> 
@@ -14,7 +13,7 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Trek The Planet</a>
+      <a class="navbar-brand" href="/">Trek The Planet</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -32,24 +31,24 @@
   </div><!-- /.container-fluid -->
 </nav>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script type="text/javascript" src="{% static 'mapper/js/map.js' %}"></script> 
-<script  async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCE2XyqKR9ZvFAClV-O-YxdshiBNez37Q&callback=initMap"></script>
 	<div id="container">
-		<h3 id="headline"> TechnoHippy & CyberPunk Saving the World by First Travelling Across It </h3> 
-		<div id="content"> 
-			<div id="about">
+		<div class="row">
+			<h3 id="headline"> TechnoHippy & CyberPunk Saving the World by First Travelling Across It </h3> 
+		</div>
+		<div class="row">
+			<div id="col-md-12 col-xs-6">
 				<h3> Experience the World with us </h3>
 				<p> Don't just dream and watch, come be a part of the experience </p> 
 				<p> Add your name and location of where you would like to meet and stay with us. </p>
 				<p> Or post a place worth staying at or a contact you have, we will try in great effort to meet with anyone and everyone. </p> 
 				<p> Fill out the form to see it be added to our possible destinations. </p> 
 			</div> 
-			<form action="/exp/" method="POST">
+			<form id="addExp"  action="/exp/" method="POST">
 				{% csrf_token %}
-				{{ form }}
+				{{ form.as_ul }}
 				<input type="submit" value="Submit"/> 
-			</form> 
-		</div> 
+			</form>
+		</div>  
 
 	</div>
 	<footer> 
