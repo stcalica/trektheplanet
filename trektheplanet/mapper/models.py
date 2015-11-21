@@ -1,14 +1,14 @@
 from django.db import models
-
+from django_countries.fields import CountryField
 # Create your models here.
 
 
 class Destination(models.Model):
 	location = models.CharField(max_length=18)
-	country = models.CharField(max_length=18)
+	country = CountryField()
 	latitude = models.FloatField()
 	longitude = models.FloatField()
-
+	visited   = models.BooleanField()
 
 
 #slowly add friends later 

@@ -13,7 +13,7 @@
 				<p> Or post a place worth staying at or a contact you have, we will try in great effort to meet with anyone and everyone. </p> 
 				<p> Fill out the form to see it be added to our possible destinations. </p> 
 			</div> 
-			<form id="addExp"  action="/exp/" method="POST">
+			<form id="addExp"  action="/experience/" method="POST">
 			
 				{% csrf_token %}
 
@@ -31,6 +31,11 @@
 				{{ form.country.errors }}
 				<label>{{ form.country.label_tag }}</label>
 				{{ form.country }}
+				</div>
+				<div class="form_field">
+				{{ form.visited.errors }}
+				<label>{{ form.visited.label_tag }}</label>
+				{{ form.visited }}
 				</div>
 				<input type="submit" value="Submit"/> 
 			</form>
