@@ -41,8 +41,15 @@ body {
 
 }
 
-#pad40{
+.blurb{
+	margin:center;
+	padding:50px;
 
-	padding:40px;
+}
+
+.form_field{
+	
+	margin:center;
+	padding:10px;
 
 }

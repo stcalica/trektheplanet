@@ -6,7 +6,7 @@
 			<h3 id="headline"> TechnoHippy & CyberPunk Saving the World by First Travelling Across It </h3> 
 		</div>
 		<div class="row">
-			<div class="col-md-12 col-xs-6 pad40">
+			<div class="col-md-12 col-xs-6 blurb">
 				<h3> Experience the World with us </h3>
 				<p> Don't just dream and watch, come be a part of the experience </p> 
 				<p> Add your name and location of where you would like to meet and stay with us. </p>
@@ -14,8 +14,24 @@
 				<p> Fill out the form to see it be added to our possible destinations. </p> 
 			</div> 
 			<form id="addExp"  action="/exp/" method="POST">
+			
 				{% csrf_token %}
-				{{ form.as_ul }}
+
+				<div class="form_field">
+				{{ form.host.errors }}
+				<label>{{ form.host.label_tag }}</label>
+				{{ form.host }}
+				</div>
+				<div class="form_field">
+				{{ form.address.errors }}
+				<label>{{ form.address.label_tag }}</label>
+				{{ form.address }}
+				</div>
+				<div class="form_field">
+				{{ form.country.errors }}
+				<label>{{ form.country.label_tag }}</label>
+				{{ form.country }}
+				</div>
 				<input type="submit" value="Submit"/> 
 			</form>
 		</div>  
