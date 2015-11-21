@@ -1,42 +1,12 @@
-<!Doctype html>
-{% load staticfiles %} 
-<html>
-	<head>
-	
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
-	<link rel="stylesheet" type="text/css" href="{% static 'mapper/css/index.css' %}">
-	
-	</head> 
-	<body> 
-	 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Trek The Planet</a>
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li ><a href="/">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Vlog</a></li>
-        <li><a href="#">Pictures</a></li>
-        <li class="active" ><a href="#">Experience<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Donate</a></li>
-        <li><a href="#">Contact</a></li>
-
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-	<div id="container">
+{% extends "base.html" %}
+{% load staticfiles %}	
+{% block content %}
+<div id="container">
 		<div class="row">
 			<h3 id="headline"> TechnoHippy & CyberPunk Saving the World by First Travelling Across It </h3> 
 		</div>
 		<div class="row">
-			<div id="col-md-12 col-xs-6">
+			<div class="col-md-12 col-xs-6 pad40">
 				<h3> Experience the World with us </h3>
 				<p> Don't just dream and watch, come be a part of the experience </p> 
 				<p> Add your name and location of where you would like to meet and stay with us. </p>
@@ -51,11 +21,4 @@
 		</div>  
 
 	</div>
-	<footer> 
-		<div id="footer"> 
-			<p> coded by CyberPunk </p> 
-		</div>
-	</footer> 
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	</body> 
-</html> 
+{% endblock %}

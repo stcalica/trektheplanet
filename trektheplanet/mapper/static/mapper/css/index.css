@@ -37,6 +37,12 @@ body {
 #addExp{
 	border:2px solid blue;
 	margin:center; 
-	padding:15px; 
+	padding:40px; 
+
+}
+
+#pad40{
+
+	padding:40px;
 
 }
