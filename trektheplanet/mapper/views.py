@@ -27,13 +27,18 @@ def index(request):
 def addexp(request):
 	
 	if (request.method == "POST"):
-		add = request.method["address"] # need to add the additions and etc like in torrentwidow
-		grequest = "https://maps.googleapis.com/maps/api/geocode/json?address=%s" % add 
-		response = urllib2.urlopen(grequest)
-		geocode = response.read() #convert into json object extract lat and lng then save them to server with Destination object
-		print(geocode) 
-		#return a thank you alert and then send them to index to see the location added to the map!
-		#need to also verify with captchas 
+		form = ExpForm(request.POST) # need to add the additions and etc like in torrentwidow
+		if(form.is_valid()):
+			coords = Destination.objects.all()
+			num = len(coords) + 1 
+			data = form.cleaned_data
+			grequest = "https://maps.googleapis.com/maps/api/geocode/json?address=%s" % data["address"]
+			print(grequest) 
+			response = urllib2.urlopen(grequest)
+			geocode = response.read() #convert into json object extract lat and lng then save them to server with Destination object
+			print(geocode) 
+			#return a thank you alert and then send them to index to see the location added to the map!
+			#need to also verify with captchas 
 	else:
 		form = ExpForm() 
 		return render(request, "experience.html", {'form': form}) #form may be wrong but render info and then form underneath
