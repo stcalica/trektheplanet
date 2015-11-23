@@ -8,8 +8,8 @@ class contact(forms.Form):
 
 
 class ExpForm(forms.Form):
-	host = forms.CharField(max_length=25) 
-	address = forms.CharField(max_length=100)
-	country = forms.CharField(max_length=25) 
+	host = forms.CharField(max_length=25, required=True) 
+	address = forms.CharField(max_length=100, required=True)
+	country = forms.CharField(max_length=25, required=True) 
 	#contact  = forms.ForeignKey(contact)
 	

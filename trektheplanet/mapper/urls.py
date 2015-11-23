@@ -8,5 +8,4 @@ urlpatterns = [
 
 	url(r'^$', views.index, name='index'),
 	url(r'^experience', views.addexp, name='experience'),
-
 ]

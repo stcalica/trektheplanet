@@ -7,7 +7,7 @@ body {
 
 #headline{
 	
-		text-align:center;
+	text-align:center;
 }
 
 #container{
@@ -28,9 +28,6 @@ body {
 
 	border:2px solid black; 
 	margin:center;
-	padding:15px;
-	
-
 }
 
 
@@ -46,6 +43,21 @@ body {
 	padding:50px;
 
 }
+	
+.announcement{
+
+	margin:auto;
+	padding:40px; 
+	text-align:center;	
+
+
+}
+
+.announce{
+
+	font-size: 35px;
+
+}
 
 .form_field{
 	
@@ -53,3 +65,16 @@ body {
 	padding:10px;
 
 }
+
+
+
+.info{
+
+	background-color: #01b050; 
+	font-size: 35px;
+	margin: 0px;
+	text-align:center;
+	list-style-type: none;
+	
+
+} 

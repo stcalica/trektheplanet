@@ -3,7 +3,18 @@
 {% block content %}
 	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="{% static 'mapper/js/map.js' %}"></script> 
+	<script type="text/javascript" src="{% static 'mapper/js/index.js' %}"></script> 
 	<script  async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCE2XyqKR9ZvFAClV-O-YxdshiBNez37Q&callback=initMap"></script>
+	{% if coordinates %}
+		{% for coor in coordinates %}
+		
+			<input type="hidden" name="coordinates" class="coordinates" value="{{coor}}"/>
+
+		{%endfor%}
+
+	 {% else %}
+		<p> There are no coordinates </p> 
+	{% endif %}
 	<div id="container">
 		<h3 id="headline"> TechnoHippy & CyberPunk Saving the World by First Travelling Across It </h3> 
 		<div id="trek-map"></div> 
