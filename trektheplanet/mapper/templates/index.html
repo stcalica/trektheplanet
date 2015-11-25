@@ -5,13 +5,19 @@
 	<script type="text/javascript" src="{% static 'mapper/js/map.js' %}"></script> 
 	<script type="text/javascript" src="{% static 'mapper/js/index.js' %}"></script> 
 	<script  async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCE2XyqKR9ZvFAClV-O-YxdshiBNez37Q&callback=initMap"></script>
+	
 	{% if coordinates %}
+		<script type="text/javascript">
+		coordinates = {{ coordinates | safe}}
+		</script>
+		{% comment %}
 		{% for coor in coordinates %}
 		
 			<input type="hidden" name="coordinates" class="coordinates" value="{{coor}}"/>
+			coordinates = {{ coordinates | safe }}
 
 		{%endfor%}
-
+		{% endcomment %}
 	 {% else %}
 		<p> There are no coordinates </p> 
 	{% endif %}

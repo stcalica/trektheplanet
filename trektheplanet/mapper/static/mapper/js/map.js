@@ -5,15 +5,17 @@
 			center: {lat: 9.7500, lng: 100.0333},
 			zoom: 3
 		});
+		/*
 		var coordinates = [] 
 		$(".coordinates").each(function(){
-
+			
 			coor = $.parseJSON($(this).val());
 			console.log(coor);
 			coordinates.push(coor);
 			
 		});
-		
+		*/
+ 		console.log(coordinates);
 		var poly = new google.maps.Polyline({
 
 			strokeColor: '#000000' , 
@@ -23,7 +25,16 @@
 		});
 	
 		poly.setMap(map);
-
+		for(var i =0; i < coordinates.length; i++){
+			var markers = new google.maps.Marker({
+				position: new google.maps.LatLng(coordinates[i].fields.latitude, coordinates[i].fields.longitude),
+				map:map
+			});
+			
+			var path = poly.getPath(); 
+			path.push(new google.maps.LatLng(coordinates[i].fields.latitude, coordinates[i].fields.longitude));
+		} 
+		/*
 		for(var i =0; i < coordinates.length; i++){
 			var markers = new google.maps.Marker({
 				position: new google.maps.LatLng(coordinates[i].lat, coordinates[i].lng),
@@ -33,7 +44,7 @@
 			var path = poly.getPath(); 
 			path.push(new google.maps.LatLng(coordinates[i].lat, coordinates[i].lng)); 
 		}
-	
+		*/
 			
 	}
 	// Resize stuff...

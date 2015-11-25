@@ -15,15 +15,9 @@ def  index(request):
 	s = serializers.serialize("json", Destination.objects.all())
 	dests = json.loads(s)
 	coordinates = []
-	i = 0 
-	for d in dests: 
-		coor = "{\"lat\":"+ str(dests[i]["fields"]["latitude"])+",\"lng\":"+ str(dests[i]["fields"]["longitude"])+ "}"
-		i = i + 1
-		#print(i) 
-		#print(coor) 
-		coordinates.append(coor)
+	coordinates = collect_coordinates()	
 
-	return render(request, "index.html", {'coordinates' : coordinates })
+	return render(request, "index.html", {'coordinates' : json.dumps(coordinates) })
 
 def addexp(request):
 	if (request.method == "POST"):
