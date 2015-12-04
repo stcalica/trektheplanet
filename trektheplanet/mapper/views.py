@@ -12,10 +12,9 @@ import json
 
 def  index(request):
 		
-	s = serializers.serialize("json", Destination.objects.all())
-	dests = json.loads(s)
 	coordinates = []
-	coordinates = collect_coordinates()	
+	coordinates = collect_coordinates()
+	print(coordinates[0])	
 
 	return render(request, "index.html", {'coordinates' : json.dumps(coordinates) })
 
@@ -32,7 +31,7 @@ def addexp(request):
 			geocode = json.loads(geocode)
 			#print(geocode['results'][0]['formatted_address'])
 			#print(geocode['results'][0]['geometry']['location'])	
-			dest = Destination(num, geocode['results'][0]['formatted_address'], data['host'], geocode['results'][0]['geometry']['location']['lat'], geocode['results'][0]['geometry']['location']['lng'], True)
+			dest = Destination(num, geocode['results'][0]['formatted_address'], data['country'], geocode['results'][0]['geometry']['location']['lat'], geocode['results'][0]['geometry']['location']['lng'], True)
 			dest.save() 	
 			#return a thank you alert and then send them to index to see the location added to the map!
 			#need to also verify with captchas 

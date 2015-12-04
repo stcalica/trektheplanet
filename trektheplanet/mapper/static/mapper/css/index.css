@@ -77,4 +77,16 @@ body {
 	list-style-type: none;
 	
 
+}
+
+#map-options{
+	width:100%; 
+	height:80px;
+	border: solid black 2px;
+
+}
+#options{
+
+	padding:20px;
+
 } 

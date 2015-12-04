@@ -22,7 +22,18 @@
 		<p> There are no coordinates </p> 
 	{% endif %}
 	<div id="container">
-		<h3 id="headline"> TechnoHippy & CyberPunk Saving the World by First Travelling Across It </h3> 
+	<!--	<h3 id="headline"> TechnoHippy & CyberPunk Saving the World by First Traveling Across It </h3> --> 
+		<div id="map-options">
+			<div class="option">
+			<label>Path Selection</label> 
+			<div>
+				<input type="checkbox" class="singleradiobox" name="cost" /><label>Cost</label> 
+				<input type="checkbox" class="singleradiobox" name="distance" /><label>Distance</label>
+			</div>
+		</div>
+			
+			
+		</div> 
 		<div id="trek-map"></div> 
 	</div>
 {% endblock %}
