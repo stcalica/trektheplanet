@@ -14,7 +14,6 @@ def  index(request):
 		
 	coordinates = []
 	coordinates = collect_coordinates()
-	print(coordinates[0])	
 
 	return render(request, "index.html", {'coordinates' : json.dumps(coordinates) })
 
