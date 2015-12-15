@@ -14,7 +14,9 @@ def  index(request):
 		
 	coordinates = []
 	coordinates = collect_coordinates()
-
+	#cost_path = collect_cost_path()
+	#distance = collect_distance_path() 
+	
 	return render(request, "index.html", {'coordinates' : json.dumps(coordinates) })
 
 def addexp(request):
@@ -49,11 +51,8 @@ def donate(request):
 
 def about(request):
 	#simple about with introduction video 
-	return render(request, "about.html"); 
+	return render(request, "thanks.html"); 
 	
-def about(request):
-	#list all pictures by country
-	return render(request, "thanks.html") 	
 
 def contact(request):
 	#sends us email

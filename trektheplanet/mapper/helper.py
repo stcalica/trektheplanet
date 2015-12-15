@@ -6,28 +6,33 @@ from .models import Destination
 import json
 
 def collect_coordinates():
-
-		
 	s = serializers.serialize("json", Destination.objects.all())
 	dests = json.loads(s)
 	#coordinates = []
-	"""
-	i = 0 
-	for d in dests: 
-	coor = "{\"lat\":"+ str(dests[i]["fields"]["latitude"])+",\"lng\":"+ str(dests[i]["fields"]["longitude"])+",\"location\":\" " +str(dests[i]["fields"]["location"])+"\"}"
-	i = i + 1
-	"""
-	#coordinates.append(dests)
 	return dests
 	#return coordinates
 
-def collect_travel_data(): 
+def compute_international(coordinates):
+#computes the best way to connect the strongly connected components that make up each country
+#connecting country to country
+#returns the path of the countries connections
+
+#the default of this is just selecting the coordinates that are marked as a base in each country
+	return path
+
+
+
+	
+	
+	
+def collect_travel_data(coor): 
 	pass
 	
-def compute_cost_path(): 
+def compute_cost_path(coor): 
 	pass
 
 	
-def compute_distance_path():
+def compute_distance_path(coor):
 	pass
 	
+

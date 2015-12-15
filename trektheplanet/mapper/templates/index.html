@@ -9,6 +9,9 @@
 	{% if coordinates %}
 		<script type="text/javascript">
 		coordinates = {{ coordinates | safe}}
+		//distance_path = {{ distance_path | safe}}
+		//cost_path = {{ cost_path | safe}}
+		
 		</script>
 		{% comment %}
 		{% for coor in coordinates %}
@@ -29,8 +32,10 @@
 			<div class="option">
 			<label>Path Selection</label> 
 			<div>
+				<form action=""> 
 				<input type="radio" class="singleradiobox" name="choice" /><label>Cost</label> 
 				<input type="radio" class="singleradiobox" name="choice" /><label>Distance</label>
+				</form> 
 			</div>
 		</div>
 			
