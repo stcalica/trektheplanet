@@ -67,23 +67,30 @@
 				console.log(counter);
 			});
 		}//end of creating listeners for markers
+
+		//you can pick a home country
+		//you  can pick cities to leave from and where to 
+		//can also compute the paths
 		paths = [];
 		for(k in countries){
+			base = {lat: countries[k][0].fields.latitude, lng: countries[k][0].fields.longitude};  
 			for(e in countries[k]){
-				ps1 = {lat: countries[k][0].fields.latitude, lng: countries[k][0].fields.longitude};  
+			//	base = {lat: countries[k][0].fields.latitude, lng: countries[k][0].fields.longitude};  
 				ps2 = {lat: countries[k][e].fields.latitude, lng: countries[k][e].fields.longitude}; 
 				var path = new google.maps.Polyline({
-					path: [ps1, ps2], 
+					path: [base, ps2], 
 					geodesic: true, 
 					strokeColor: '#FF0000',
 					strokeOpacity:1.0, 
-					strokeWeight: 2
+					strokeWeight: 1
 				});		 
 				path.setMap(map); 	
 			}//end of e 
 
 		}//end of k in countries 
-
+		//need a listener for button to choose best/cheapest path across
+		//connect by cost, connect if int'l airport, connect if on destination path
+		//make path that is if have saved destination path. make form for it, and take each coordinate and either create one or take an existing one and add it to the map
 
 	}
 				
