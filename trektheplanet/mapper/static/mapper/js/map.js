@@ -36,10 +36,6 @@
 		paths = [];
 		country_assignment();
 		for(c in countries){
-		//	console.log("in country: "); 
-		//	console.log(c); 
-		//	console.log("creating everything for location: ")
-		//	console.log(countries[c]);
 			for(d in countries[c]){
 				var contentStr = '<div class=\"info\"> ' + '<p>' + countries[c][d].fields.country +'</p></div>';   
 					var infoWindow = new google.maps.InfoWindow({
@@ -49,24 +45,22 @@
 					position: new google.maps.LatLng(countries[c][d].fields.latitude, countries[c][d].fields.longitude),
 					map:map,
 					title:countries[c][d].fields.country,
-					id: (counter++)  //need to make special ids for them 
+					id: countries[c][d].fields.pk  //need to make special ids for them 
 				});
 			
 				markers.push(marker);
 				infoWindows.push(infoWindow); 			
-			//if the nodes are in the same country take the first node then map it to the other nodes (only taking first node for now) 
-				
-
-			//path.push(new google.maps.LatLng(coordinates[i].fields.latitude, coordinates[i].fields.longitude));
+			}
+		}
 			//end of for loop making the infowindows and plotting markers
-		 
-		for(j = 0; j < markers.length; j++){
-			var counter = j;
-			markers[j].addListener('click', function(){
-				infoWindows[this.id].open(map, markers[this.id]);
-				console.log(counter);
-			});
-		}//end of creating listeners for markers
+		for( j = 0; j < markers.length; j++){
+			 google.maps.event.addListener(markers[j], 'click', (function(marker, j) {
+         return function() {
+          infoWindows[j].open(map, markers[j]);
+         }
+        })(markers[j], j));
+		
+		}
 
 		//you can pick a home country
 		//you  can pick cities to leave from and where to 
@@ -92,13 +86,12 @@
 		//connect by cost, connect if int'l airport, connect if on destination path
 		//make path that is if have saved destination path. make form for it, and take each coordinate and either create one or take an existing one and add it to the map
 
-	}
+	} //end of initMap
 				
 	
 			
-}//end of initMap
 
-}
+
  
 	// Resize stuff...
 	google.maps.event.addDomListener(window, "resize", function() {
