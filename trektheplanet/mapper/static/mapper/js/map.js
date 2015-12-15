@@ -15,7 +15,6 @@
 	}//end of country assignment
 
 
-
 	function initMap() {
 		map = new google.maps.Map(document.getElementById('trek-map'), {
 			center: {lat: 9.7500, lng: 100.0333},
@@ -37,6 +36,7 @@
 		country_assignment();
 		for(c in countries){
 			for(d in countries[c]){
+			//fill the content string with information from gov api's and facebook
 				var contentStr = '<div class=\"info\"> ' + '<p>' + countries[c][d].fields.country +'</p></div>';   
 					var infoWindow = new google.maps.InfoWindow({
 					content: contentStr
@@ -52,7 +52,7 @@
 				infoWindows.push(infoWindow); 			
 			}
 		}
-			//end of for loop making the infowindows and plotting markers
+		//end of for loop making the infowindows and plotting markers
 		for( j = 0; j < markers.length; j++){
 			 google.maps.event.addListener(markers[j], 'click', (function(marker, j) {
          return function() {

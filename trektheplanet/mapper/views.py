@@ -50,11 +50,27 @@ def donate(request):
 def about(request):
 	#simple about with introduction video 
 	return render(request, "about.html"); 
+	
+def about(request):
+	#list all pictures by country
+	return render(request, "thanks.html") 	
 
-
-def contactus(request):
+def contact(request):
 	#sends us email
 	return render(request, "contactus.html", {'form': form})
 
+def donate(request):
+	#page to donate with bitcoin or paypal
+	return render(request, "thanks.html") 	
+
+def pics(request):
+	#list all pictures by country
+	return render(request, "thanks.html") 	
+
+def vlogs(request):
+	#list all vlogs by country
+	return render(request, "thanks.html") 	
+	
 def thanks(request):
+	#static thank you page
 	return render(request, "thanks.html") 

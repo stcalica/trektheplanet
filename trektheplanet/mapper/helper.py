@@ -21,3 +21,13 @@ def collect_coordinates():
 	return dests
 	#return coordinates
 
+def collect_travel_data(): 
+	pass
+	
+def compute_cost_path(): 
+	pass
+
+	
+def compute_distance_path():
+	pass
+	
