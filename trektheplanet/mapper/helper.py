@@ -6,7 +6,7 @@ from .models import Destination
 import json
 
 def collect_coordinates():
-	s = serializers.serialize("json", Destination.objects.all())
+	s = serializers.serialize("json", Destination.objects.filter(approved=True))
 	dests = json.loads(s)
 	#coordinates = []
 	return dests

@@ -6,6 +6,7 @@ from .forms import ExpForm
 from helper import collect_coordinates
 from django.contrib import messages
 
+
 import urllib
 import urllib2
 import json
@@ -43,6 +44,8 @@ def addexp(request):
 		form = ExpForm() 
 		return render(request, "experience.html", {'form': form}) #form may be wrong but render info and then form underneath
 
+		
+		
 def donate(request):
 	# render all donations front for organizations/NGOs/Nonprofits
 	# have top parts for us and specific donations request(specifically goes to us and then we do what they ask) 

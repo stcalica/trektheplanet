@@ -4,12 +4,14 @@ from django_countries.fields import CountryField
 
 
 class Destination(models.Model):
-	location = models.CharField(max_length=18)
+	location = models.CharField(max_length=50)
 	country = CountryField()
 	latitude = models.FloatField()
 	longitude = models.FloatField()
 	visited   = models.BooleanField()
-
+	approved = models.BooleanField(default='false') 
+	def __unicode__(self):
+		return self.location 
 
 #slowly add friends later 
 #class Friend(models.Model):
