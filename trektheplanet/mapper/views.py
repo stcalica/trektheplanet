@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.core import serializers
 from .models import Destination
 from .forms import ExpForm 
-from helper import collect_coordinates
+from helper import collect_coordinates,  compute_international
 from django.contrib import messages
 
 
@@ -17,8 +17,8 @@ def  index(request):
 	coordinates = collect_coordinates()
 	#cost_path = collect_cost_path()
 	#distance = collect_distance_path() 
-	
-	return render(request, "index.html", {'coordinates' : json.dumps(coordinates) })
+	c = compute_international()
+	return render(request, "index.html", {'coordinates' : json.dumps(coordinates), 'int_path' : json.dumps(c) })
 
 def addexp(request):
 	if (request.method == "POST"):

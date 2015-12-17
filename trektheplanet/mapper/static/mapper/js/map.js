@@ -62,6 +62,9 @@
 		
 		}
 
+
+		
+		
 		//you can pick a home country
 		//you  can pick cities to leave from and where to 
 		//can also compute the paths
@@ -81,7 +84,26 @@
 				path.setMap(map); 	
 			}//end of e 
 
+
 		}//end of k in countries 
+		//international plot line
+		intpath = []
+		for( u in international){
+			tmp = {lat: international[u].fields.latitude, lng: international[u].fields.longitude};
+			intpath.push(tmp); 
+		} 
+		tmp = {lat: international[0].fields.latitude, lng: international[0].fields.longitude};
+		intpath.push(tmp); 
+
+		var path = new google.maps.Polyline({
+					path: intpath, 
+					geodesic: false, 
+					strokeColor: '#FF0001',
+					strokeOpacity:1.0, 
+					strokeWeight: 1
+				});		 
+		path.setMap(map); 	
+		
 		//need a listener for button to choose best/cheapest path across
 		//connect by cost, connect if int'l airport, connect if on destination path
 		//make path that is if have saved destination path. make form for it, and take each coordinate and either create one or take an existing one and add it to the map

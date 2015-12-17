@@ -10,6 +10,7 @@ class Destination(models.Model):
 	longitude = models.FloatField()
 	visited   = models.BooleanField()
 	approved = models.BooleanField(default='false') 
+	base = models.BooleanField(default='false')
 	def __unicode__(self):
 		return self.location 
 
