@@ -14,11 +14,37 @@ class Destination(models.Model):
 	def __unicode__(self):
 		return self.location 
 
-#slowly add friends later 
-#class Friend(models.Model):
-#	name = models.CharField(25) 
-#	destination = ForeignKey(Destination) 
+
+class Blog(models.Model): 
+	title = models.CharField(max_length=50)
+	article = models.CharField(max_length=10000) #if video then store file_path
+	country = CountryField()
+	date = models.DateField() 
+	vlog = models.BooleanField(default='True') #if vlog then yes  
+	def __unicode__(self):
+		return self.title 
+		
+		
+		
+class Contact(models.Model):
+	name = models.CharField(max_length=50) 
+	home = models.CharField(max_length=50) 
+	email = models.CharField(max_length=50) 
+	country = CountryField()
+	phone = models.IntegerField() 
+	location = models.ForeignKey('Destination')
+
+	def __unicode__(self):
+		return self.name 	
+		
 """
+class Vlog(models.Model): 
+	title = models.CharField(max_length=50)
+	file_path = models.CharField()
+	date = models.DateField() 
+	country = CountryField()
+	def __unicode__(self):
+		return self.title 
 class Contact(models.Model):
 	name = models.CharField(25) 
 	home = models.CharField(25) 
