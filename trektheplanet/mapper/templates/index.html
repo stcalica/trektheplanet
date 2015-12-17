@@ -14,14 +14,6 @@
 		//cost_path = {{ cost_path | safe}}
 		
 		</script>
-		{% comment %}
-		{% for coor in coordinates %}
-		
-			<input type="hidden" name="coordinates" class="coordinates" value="{{coor}}"/>
-			coordinates = {{ coordinates | safe }}
-
-		{%endfor%}
-		{% endcomment %}
 	 {% else %}
 		<p> There are no coordinates </p> 
 	{% endif %}

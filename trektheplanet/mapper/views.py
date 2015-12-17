@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core import serializers
-from .models import Destination
+from .models import Destination, Blog
 from .forms import ExpForm 
 from helper import collect_coordinates,  compute_international
 from django.contrib import messages
@@ -71,7 +71,8 @@ def pics(request):
 
 def vlogs(request):
 	#list all vlogs by country
-	return render(request, "thanks.html") 	
+	blogs = Blog.objects.all() 
+	return render(request, "blog.html", {'blogs': blogs}) 	
 	
 def thanks(request):
 	#static thank you page

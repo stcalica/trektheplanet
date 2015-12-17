@@ -17,7 +17,7 @@ class Destination(models.Model):
 
 class Blog(models.Model): 
 	title = models.CharField(max_length=50)
-	article = models.CharField(max_length=10000) #if video then store file_path
+	article = models.TextField() #if video then store file_path
 	country = CountryField()
 	date = models.DateField() 
 	vlog = models.BooleanField(default='True') #if vlog then yes  

@@ -1,0 +1,23 @@
+{% extends "base.html"  %}
+{% load staticfiles  %}
+{% block content %}
+	{% if blogs %}
+	{% for blog in blogs %}
+		{% if blog.vlog %}
+		<video src="{{ blog.article }}"> Browser Does Not Support Video </video> 
+		{% else %}
+		<div class="container article">
+			<h3> {{ blog.title }} </h3>  
+			<p> {{ blog.article }} </p> 
+		</div> 
+		{% endif %}
+	{% endfor %}
+	{% else %}
+		<div class="row announcement">
+
+			<h1 class="announce"> Sorry, No entries as of yet!  </h1>
+		</div> 
+
+	{% endif %}
+
+{% endblock %}
