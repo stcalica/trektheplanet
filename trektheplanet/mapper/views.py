@@ -5,6 +5,7 @@ from .models import Destination, Blog
 from .forms import ExpForm 
 from helper import collect_coordinates,  compute_international
 from django.contrib import messages
+from django_countries import countries
 
 
 import urllib
@@ -18,7 +19,7 @@ def  index(request):
 	#cost_path = collect_cost_path()
 	#distance = collect_distance_path() 
 	c = compute_international()
-	return render(request, "index.html", {'coordinates' : json.dumps(coordinates), 'int_path' : json.dumps(c) })
+	return render(request, "index.html", {'coordinates' : json.dumps(coordinates), 'int_path' : json.dumps(c), 'codes' : json.dumps(dict(countries))  })
 
 def addexp(request):
 	if (request.method == "POST"):

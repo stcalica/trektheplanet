@@ -37,10 +37,11 @@
 		for(c in countries){
 			for(d in countries[c]){
 			//fill the content string with information from gov api's and facebook 
-			console.log(countries[c][d]);
-			$.getJSON("http://www.state.gov/api/v1/?command=get_country_fact_sheets&terms='"+ + "'" , function(data){
+			
+			$.getJSON("http://www.state.gov/api/v1/?command=get_country_fact_sheets&terms='"+ ccodes[countries[c][d].fields.country]+"'" , function(data){
 				console.log(data);
-			});
+			}); 
+		
 			
 				var contentStr = '<div class=\"info\"> ' + '<p>' + countries[c][d].fields.country +'</p></div>';   
 					var infoWindow = new google.maps.InfoWindow({
