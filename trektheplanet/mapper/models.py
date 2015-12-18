@@ -8,9 +8,9 @@ class Destination(models.Model):
 	country = CountryField()
 	latitude = models.FloatField()
 	longitude = models.FloatField()
-	visited   = models.BooleanField()
-	approved = models.BooleanField(default='false') 
-	base = models.BooleanField(default='false')
+	visited   = models.BooleanField(default=False)
+	approved = models.BooleanField(default=False) 
+	base = models.BooleanField(default=False)
 	def __unicode__(self):
 		return self.location 
 
@@ -27,11 +27,19 @@ class Blog(models.Model):
 		
 		
 class Contact(models.Model):
+#choice method of contact
+	contact_preference = (
+		('phone','phone'),
+		('email','email'),
+		('mail','mail'),
+	)
 	name = models.CharField(max_length=50) 
-	home = models.CharField(max_length=50) 
+
+	method = models.CharField(max_length=50, choices=contact_preference, default='email')
+	address = models.CharField(max_length=50) 
 	email = models.CharField(max_length=50) 
-	country = CountryField()
 	phone = models.IntegerField() 
+	country = CountryField()
 	location = models.ForeignKey('Destination')
 
 	def __unicode__(self):

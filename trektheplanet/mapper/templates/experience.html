@@ -1,6 +1,32 @@
 {% extends "base.html" %}
 {% load staticfiles %}	
 {% block content %}
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script> 
+				$(document).ready(function(){
+					$("#phone").hide();
+					$("#email").hide();				
+					$("#id_preference").change(function () {
+							if($("#id_preference").val() === "phone"){
+								$("#phone").show();
+								$("#email").hide();				
+							}
+							if($("#id_preference").val() === "email"){
+								$("#email").show();
+								$("#phone").hide();
+							}
+							if($("#id_preference").val() === "mail"){
+								$("#phone").hide();
+								$("#email").hide();								
+							} 
+
+					});
+					
+					});
+					
+				
+</script> 
+
 <div id="container">
 		<div class="row">
 			<h3 id="headline"> TechnoHippy & CyberPunk Saving the World by First Travelling Across It </h3> 
@@ -12,6 +38,8 @@
 				<p> Add your name and location of where you would like to meet and stay with us. </p>
 				<p> Or post a place worth staying at or a contact you have, we will try in great effort to meet with anyone and everyone. </p> 
 				<p> Fill out the form to see it be added to our possible destinations. </p> 
+				
+				<p><strong> Make sure to add your contact information so we can verify you!</strong></p> 
 			</div> 
 			<form id="addExp"  action="/experience/" method="POST">
 			
@@ -22,6 +50,22 @@
 				{{ form.host.errors }}
 				<label>{{ form.host.label_tag }}</label>
 				{{ form.host }}
+				</div>
+				<div class="form_field">
+				{{ form.preference.errors }}
+				<label>{{ form.preference.label_tag }}</label>
+				{{ form.preference }}
+				</div>
+			
+				<div  id="phone" class="form_field">
+				{{ form.phone.errors }}
+				<label>{{ form.phone.label_tag }}</label>
+				{{ form.phone }}
+				</div>
+				<div id="email" class="form_field">
+				{{ form.email.errors }}
+				<label>{{ form.email.label_tag }}</label>
+				{{ form.email }}
 				</div>
 				<div class="form_field">
 				{{ form.address.errors }}

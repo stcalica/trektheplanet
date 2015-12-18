@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core import serializers
-from .models import Destination, Blog
+from .models import Destination, Blog, Contact
 from .forms import ExpForm 
 from helper import collect_coordinates,  compute_international
 from django.contrib import messages
@@ -27,19 +27,34 @@ def addexp(request):
 		if(form.is_valid()):
 			coords = Destination.objects.all()
 			num = len(coords) + 1 
+			contacts = Contact.objects.all()
+			new = len(contacts) + 1 
 			data = form.cleaned_data
-			grequest = "https://maps.googleapis.com/maps/api/geocode/json?address=%s" % urllib.quote(data["address"])
+			#add address and country together then put in request 
+			grequest = "https://maps.googleapis.com/maps/api/geocode/json?address=%s" % urllib.quote(data["address"]+data["country"])
 			response = urllib2.urlopen(grequest)
 			geocode = response.read() #convert into json object extract lat and lng then save them to server with Destination object
 			geocode = json.loads(geocode)
 			#print(geocode['results'][0]['formatted_address'])
 			#print(geocode['results'][0]['geometry']['location'])	
 			dest = Destination(num, geocode['results'][0]['formatted_address'], data['country'], geocode['results'][0]['geometry']['location']['lat'], geocode['results'][0]['geometry']['location']['lng'], True)
+			if(data["preference"] == 'email'):
+				host = Contact(new, data["host"], data["address"],data["contact"],data["country"],0,num,data["preference"])
+
+			elif(data["preference"] == 'phone'):
+				host = Contact(new, data["host"], data["address"],'',data["country"],data["contact"],num,data["preference"])
+
+			elif(data["preference"] == 'mail'):
+				host = Contact(new, data["host"], data["address"],'',data["country"],0,num,data["preference"])
+
+			#host = Contact(data["host"], data["address"],'',data["country"],'','',data["preference"])
+			host.save() 
 			dest.save() 	
 			#return a thank you alert and then send them to index to see the location added to the map!
 			#need to also verify with captchas 
 			coordinates = collect_coordinates()
 			messages.add_message(request, messages.INFO, 'Thanks! We will contact you once we find a way there! ') 
+			#re-route to thank you page
 			return render(request, "index.html", {'coordinates' : coordinates })
 	else:
 		form = ExpForm() 
