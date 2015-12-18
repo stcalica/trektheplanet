@@ -37,8 +37,8 @@
 		for(c in countries){
 			for(d in countries[c]){
 			//fill the content string with information from gov api's and facebook 
-			
-			$.getJSON("http://www.state.gov/api/v1/?command=get_country_fact_sheets&terms='"+ ccodes[countries[c][d].fields.country]+"'" , function(data){
+			//ccodes[countries[c][d].fields.country]
+			$.getJSON("http://api.worldbank.org/countries/" , function(data){
 				console.log(data);
 			}); 
 		
