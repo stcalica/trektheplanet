@@ -1,5 +1,7 @@
 from django.db import models
 from django_countries.fields import CountryField
+from phonenumber_field.modelfields import PhoneNumberField
+
 # Create your models here.
 
 
@@ -37,8 +39,8 @@ class Contact(models.Model):
 
 	method = models.CharField(max_length=50, choices=contact_preference, default='email')
 	address = models.CharField(max_length=50) 
-	email = models.CharField(max_length=50) 
-	phone = models.IntegerField() 
+	email = models.EmailField() 
+	phone = PhoneNumberField(blank=True) 
 	country = CountryField()
 	location = models.ForeignKey('Destination')
 

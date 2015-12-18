@@ -22,8 +22,9 @@ def  index(request):
 	return render(request, "index.html", {'coordinates' : json.dumps(coordinates), 'int_path' : json.dumps(c), 'codes' : json.dumps(dict(countries))  })
 
 def addexp(request):
+	form = ExpForm()
 	if (request.method == "POST"):
-		form = ExpForm(request.POST) # need to add the additions and etc like in torrentwidow
+		form = ExpForm(request.POST) 
 		if(form.is_valid()):
 			coords = Destination.objects.all()
 			num = len(coords) + 1 
@@ -39,10 +40,10 @@ def addexp(request):
 			#print(geocode['results'][0]['geometry']['location'])	
 			dest = Destination(num, geocode['results'][0]['formatted_address'], data['country'], geocode['results'][0]['geometry']['location']['lat'], geocode['results'][0]['geometry']['location']['lng'], True)
 			if(data["preference"] == 'email'):
-				host = Contact(new, data["host"], data["address"],data["contact"],data["country"],0,num,data["preference"])
+				host = Contact(new, data["host"], data["address"],data["email"],data["country"],0,num,data["preference"])
 
 			elif(data["preference"] == 'phone'):
-				host = Contact(new, data["host"], data["address"],'',data["country"],data["contact"],num,data["preference"])
+				host = Contact(new, data["host"], data["address"],'',data["country"],data["phone"],num,data["preference"])
 
 			elif(data["preference"] == 'mail'):
 				host = Contact(new, data["host"], data["address"],'',data["country"],0,num,data["preference"])
@@ -56,8 +57,9 @@ def addexp(request):
 			messages.add_message(request, messages.INFO, 'Thanks! We will contact you once we find a way there! ') 
 			#re-route to thank you page
 			return render(request, "index.html", {'coordinates' : coordinates })
+		else:
+			return render(request, "experience.html", {'form': form})
 	else:
-		form = ExpForm() 
 		return render(request, "experience.html", {'form': form}) #form may be wrong but render info and then form underneath
 
 		
