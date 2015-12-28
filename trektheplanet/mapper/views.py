@@ -25,7 +25,9 @@ def addexp(request):
 	form = ExpForm()
 	if (request.method == "POST"):
 		form = ExpForm(request.POST) 
+		print("Checking if form is valid..") 
 		if(form.is_valid()):
+			print("form is valid")
 			coords = Destination.objects.all()
 			num = len(coords) + 1 
 			contacts = Contact.objects.all()
@@ -39,14 +41,15 @@ def addexp(request):
 			#print(geocode['results'][0]['formatted_address'])
 			#print(geocode['results'][0]['geometry']['location'])	
 			dest = Destination(num, geocode['results'][0]['formatted_address'], data['country'], geocode['results'][0]['geometry']['location']['lat'], geocode['results'][0]['geometry']['location']['lng'], True)
-			if(data["preference"] == 'email'):
-				host = Contact(new, data["host"], data["address"],data["email"],data["country"],0,num,data["preference"])
+			print(data) 
+			if(data['preference'] == 'email'):
+				host = Contact(new, data["host"], data["address"],data["email"],data["country"],0,num,2)
 
-			elif(data["preference"] == 'phone'):
-				host = Contact(new, data["host"], data["address"],'',data["country"],data["phone"],num,data["preference"])
+			elif(data['preference'] == 'phone'):
+				host = Contact(new, data["host"], data["address"],'',data["country"],data["phone"],num,1)
 
-			elif(data["preference"] == 'mail'):
-				host = Contact(new, data["host"], data["address"],'',data["country"],0,num,data["preference"])
+			elif(data['preference'] == 'mail'):
+				host = Contact(new, data["host"], data["address"],'',data["country"],0,num,3)
 
 			#host = Contact(data["host"], data["address"],'',data["country"],'','',data["preference"])
 			host.save() 

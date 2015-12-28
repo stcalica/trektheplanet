@@ -36,11 +36,10 @@ class Contact(models.Model):
 		('mail','mail'),
 	)
 	name = models.CharField(max_length=50) 
-
-	method = models.CharField(max_length=50, choices=contact_preference, default='email')
+	method = models.CharField(max_length=5, choices=contact_preference, default='email')
 	address = models.CharField(max_length=50) 
 	email = models.EmailField() 
-	phone = PhoneNumberField(blank=True) 
+	phone = models.CharField(blank=True, max_length=10) 
 	country = CountryField()
 	location = models.ForeignKey('Destination')
 
