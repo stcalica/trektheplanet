@@ -1,0 +1,2 @@
+phonenumbers>=7.0.2
+babel
